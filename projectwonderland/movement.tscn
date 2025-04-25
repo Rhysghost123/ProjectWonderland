@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch4wkw3vgw4ex"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_p0q30"]
+[ext_resource type="Texture2D" uid="uid://byq7huf2ppqqs" path="res://icon.svg" id="2_dpcqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bthb"]
+size = Vector2(24.5, 24.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbyrp"]
+atlas = ExtResource("2_dpcqu")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clnc7"]
+atlas = ExtResource("2_dpcqu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dmj6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbyrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clnc7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Arlon" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_p0q30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0.5, 0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_4bthb")
+debug_color = Color(1, 0.345098, 0.0509804, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_2dmj6")
+frame_progress = 0.739408

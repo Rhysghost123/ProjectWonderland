@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=4 uid="uid://rkf56rwoac5q"]
+
+[ext_resource type="Texture2D" uid="uid://byq7huf2ppqqs" path="res://icon.svg" id="1_bseya"]
+[ext_resource type="PackedScene" uid="uid://ch4wkw3vgw4ex" path="res://movement.tscn" id="2_qfy8d"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ivu4w"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48d1i"]
+texture = ExtResource("1_bseya")
+0:0/0 = 0
+2:0/0 = 0
+1:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+3:5/0 = 0
+1:5/0 = 0
+6:5/0 = 0
+4:6/0 = 0
+3:4/0 = 0
+4:3/0 = 0
+5:2/0 = 0
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8, -8, -8)
+
+[sub_resource type="TileSet" id="TileSet_v3gis"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_ivu4w")
+sources/0 = SubResource("TileSetAtlasSource_48d1i")
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(12, 4)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-21, 136)
+tile_set = SubResource("TileSet_v3gis")
+format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+position = Vector2(-19, 45)
+tile_map_data = PackedByteArray("AAAFAAQAAAACAAMAAAAGAAQAAAACAAMAAAAHAAQAAAACAAMAAAAIAAQAAAACAAMAAAAJAAQAAAACAAMAAAAKAAQAAAACAAMAAAALAAQAAAACAAMAAAAMAAQAAAACAAMAAAANAAQAAAACAAMAAAAOAAQAAAACAAMAAAAPAAQAAAACAAMAAAAQAAQAAAACAAMAAAARAAQAAAACAAMAAAASAAQAAAACAAMAAAATAAQAAAACAAMAAAAUAAQAAAACAAMAAAAVAAQAAAACAAMAAAAWAAQAAAACAAMAAAAXAAQAAAACAAMAAAAYAAQAAAACAAMAAAAZAAQAAAACAAMAAAAaAAQAAAACAAMAAAAbAAQAAAACAAMAAAAcAAQAAAACAAMAAAAdAAQAAAACAAMAAAAeAAQAAAACAAMAAAAfAAQAAAACAAMAAAAgAAQAAAACAAMAAAAhAAQAAAACAAMAAAAiAAQAAAACAAMAAAAjAAQAAAACAAMAAAAkAAQAAAACAAMAAAAlAAQAAAACAAMAAAAmAAQAAAACAAMAAAAnAAQAAAACAAMAAAAoAAQAAAACAAMAAAApAAQAAAACAAMAAAAqAAQAAAACAAMAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAACAAQAAAACAAMAAAABAAQAAAACAAMAAAAAAAQAAAACAAMAAAD//wQAAAACAAMAAAD+/wQAAAACAAMAAAA=")
+tile_set = SubResource("TileSet_v3gis")
+
+[node name="Arlon" parent="." instance=ExtResource("2_qfy8d")]
+position = Vector2(-21, 136)
